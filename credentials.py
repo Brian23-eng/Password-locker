@@ -3,7 +3,7 @@ class Credential:
     Class that generates new instances of credentials.
     """
 
-    credential_list = [] # Empty contact list
+    cred_list = [] # Empty credential list
 
     def __init__(self,account_name,username,password):
 
@@ -18,4 +18,13 @@ class Credential:
         self.account_name = account_name
         self.username = username
         self.password = password
+
+    def save_cred(self):
+
+        '''
+        save credentials objects to the cred_list
+
+        '''
+
+        self.cred_list.append(self)
 

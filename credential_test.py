@@ -38,6 +38,21 @@ class TestCredential(unittest.TestCase):
 
         self.assertEqual(self.new_cred.password, 'steph')
 
+    def test_save_cred(self):
+
+        '''
+        test case to check if we can save our credentilas in the empty cred_list.
+
+        '''
+
+        self.new_cred.save_cred()
+        self.assertEqual(len(Credential.cred_list),1)
+
+
+
+
+
+
 if __name__ == '__main__':
     unittest.main()
 
