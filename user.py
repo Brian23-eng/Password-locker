@@ -1,3 +1,4 @@
+
 class User:
     '''
 
@@ -24,5 +25,8 @@ class User:
         self. last_name = last_name
         self.username = username
         self.password = password
+
+    
+
 
 
