@@ -24,3 +24,5 @@ class TestCredential(unittest.TestCase):
 
         '''
         Credential.cred_list = []
+
+    
