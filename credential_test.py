@@ -64,9 +64,26 @@ class TestCredential(unittest.TestCase):
     def test_display_cred(self):
         '''
         Test case to check if the credentials can be displayed.
-        
+
         '''
         self.assertEqual(Credential.display_cred(), Credential.cred_list)
+
+    def test_delete_cred(self):
+
+        '''
+
+        test case to check if i can remove credentials that i no longer need
+
+        '''
+        self.new_cred.save_cred()
+
+        test_cred = Credential('facebook', 'jesse jane', 'crew')
+
+        test_cred.save_cred()
+
+        self.new_cred.delete_cred() #Deleteing the credentials objects
+        self.assertEqual(len(Credential.cred_list),1)
+
 
 
 

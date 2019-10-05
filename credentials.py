@@ -35,3 +35,14 @@ class Credential:
         """
         return cls.cred_list
 
+    def delete_cred(self):
+
+        '''
+        delete_cred method deletes saved credentials that are nolonger needed
+
+        '''
+
+        Credential.cred_list.remove(self)
+
+
+
