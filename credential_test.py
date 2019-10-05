@@ -61,6 +61,13 @@ class TestCredential(unittest.TestCase):
         test_cred.save_cred()
         self.assertEqual(len(Credential.cred_list),2)
 
+    def test_display_cred(self):
+        '''
+        Test case to check if the credentials can be displayed.
+        
+        '''
+        self.assertEqual(Credential.display_cred(), Credential.cred_list)
+
 
 
 

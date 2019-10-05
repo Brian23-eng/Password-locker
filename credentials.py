@@ -28,3 +28,10 @@ class Credential:
 
         self.cred_list.append(self)
 
+    @classmethod
+    def display_cred(cls):
+        """
+        Method that returns the cred_list list
+        """
+        return cls.cred_list
+
