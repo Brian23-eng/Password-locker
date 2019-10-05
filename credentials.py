@@ -1,3 +1,5 @@
+import pyperclip
+
 class Credential:
     """
     Class that generates new instances of credentials.
@@ -43,6 +45,13 @@ class Credential:
         '''
 
         Credential.cred_list.remove(self)
+
+    @classmethod
+    def copy_cred(cls, username):
+        """
+        Method that copies credentials to clipboard.
+        """
+        pyperclip.copy(username)
 
 
 

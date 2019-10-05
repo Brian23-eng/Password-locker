@@ -1,5 +1,6 @@
 import unittest #Importing the unnittest module
 from credentials import Credential #Importing the credentials class
+import pyperclip
 
 class TestCredential(unittest.TestCase):
 
@@ -83,6 +84,14 @@ class TestCredential(unittest.TestCase):
 
         self.new_cred.delete_cred() #Deleteing the credentials objects
         self.assertEqual(len(Credential.cred_list),1)
+
+    def test_copy_cred(self):
+        """
+        Test to check if credentials are copied to clipboard.
+        """
+        self.new_cred.save_cred()
+        Credential.copy_cred('brian__jibril')
+        self.assertEqual(pyperclip.paste(), self.new_cred.username)
 
 
 
