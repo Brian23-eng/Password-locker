@@ -34,6 +34,21 @@ class User:
         '''
         self.user_list.append(self)
 
+    @classmethod
+    def user_exists(cls, logged_user):
+        '''
+        A Method that checks if the user exists or not
+        args:
+        logged_user: username to search if the user exists
+
+        returns:boolean:true or false depending on the condition
+        
+        '''
+        for user in cls.user_list:
+            if user.username == logged_user:
+                return True
+        return False
+
 
     
 

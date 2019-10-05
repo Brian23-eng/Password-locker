@@ -40,6 +40,16 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
 
+    def test_user_exists(self):
+        
+        '''
+        Test case to check if the users info already exisits
+
+        '''
+        self.new_user.save_user()
+        self.assertTrue(User.user_exists('brian__jibril'))
+
+
 
 
 
