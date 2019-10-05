@@ -25,4 +25,20 @@ class TestCredential(unittest.TestCase):
         '''
         Credential.cred_list = []
 
+    def test_init(self):
+
+        '''
+        test init to test if the object is initialized properly
+
+        '''
+
+        self.assertEqual(self.new_cred.account_name,'twitter')
+
+        self.assertEqual(self.new_cred.username, 'brian__jibril')
+
+        self.assertEqual(self.new_cred.password, 'steph')
+
+if __name__ == '__main__':
+    unittest.main()
+
     
