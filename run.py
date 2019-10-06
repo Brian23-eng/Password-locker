@@ -24,23 +24,41 @@ def login_user():
 
     password = input("Enter your password \n")
 
-    if User.user.exists(username):
+    if User.user_exists(username):
         for user in User.user_list:
             if username == user.username and password == user.password:
                 return True
-            
             else:
-                print("Invalid username or password! Please try again")
-
-                #login_user()
-
+                print("Invalid user name or password! Please try again.")
+                # login_user()
     else:
         print("User does not exist")
-        clear = input("Kindly press any key to continue...")
+        anykey = input('Kindly press any key to continue...')
         return False
+    
+
+def create_credentials(account_name, username, password):
+    """
+        Method that create new credentials
+    """
+    save_credentials(Credential(account_name, username, password))
+
+
+def save_credentials(cred):
+    """
+        Method that stores existing credentials
+    """
+    Credential.cred_list.append(cred)
+
+
+def display_credentials():
+    """
+        Method that displays all credentials
+    """
+    return Credential.cred_list
 
 if __name__ == '__main__':
-    # main()
+    main()
 
 
 
