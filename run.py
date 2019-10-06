@@ -38,24 +38,38 @@ def login_user():
     
 
 def create_credentials(account_name, username, password):
-    """
+    
+    '''
         Method that create new credentials
-    """
+    '''
     save_credentials(Credential(account_name, username, password))
 
 
 def save_credentials(cred):
-    """
+    
+    '''
         Method that stores existing credentials
-    """
+    '''
     Credential.cred_list.append(cred)
 
 
 def display_credentials():
-    """
+    
+    '''
         Method that displays all credentials
-    """
+    '''
     return Credential.cred_list
+
+def generate_password(length):
+    
+    '''
+        Method that generates passwords.
+    '''
+    chars = 'abcdefghijklmnopqrstuvwxyz1234567890'
+    password = ''
+    for chars in range(length):
+        password += random.choice(chars)
+    return password
 
 if __name__ == '__main__':
     main()
