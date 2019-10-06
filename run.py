@@ -80,7 +80,7 @@ def main():
     while True:
         print("\033c")
 
-        select = input("Welcome to the PasswordLocker. Type in the following: \n \n \"login\" - to log in to you account. \n \"register\" - to create a new Password Locker Account. \n \"exist\" - toe exist the Password Locker App \n \n").lower()
+        select = input("Welcome to the Password Locker an App developed by BranTech. Type in the following: \n \n \"login\" - to log in to you account. \n \"register\" - to create a new Password Locker Account. \n \"exist\" - to exist the Password Locker App \n \n").lower()
 
     print("." * 14)
 
@@ -99,8 +99,39 @@ def main():
         password = input("Enter a desired strong password \n")
         register_user(f_name, l_name, u_name, password)
         print('\n')
-        
+
         print("Your Account has been created successfully!! \n")
+        
+        anykey = input('Kindly press any key to continue...')
+        # continue
+
+    elif select == 'login':
+        print("\033c")
+
+        logged_in = login_user()
+
+        while logged_in:
+            print("\033c")
+
+            print(f"Welcome. Choose:\n new - to create new credentials, \n save - to store credentials, \n display - display all credentials, \n quit - to close this section")
+
+            selected_word = input().lower()
+
+            if selected_word == 'new':
+                print("\033c")
+                account_name = input('Enter  your account name \n')
+                u_name = input('Enter your user name \n')
+                choice = input(
+                        'Would you like to autogenerate your password?(yes/no) \n').lower()
+                if choice == 'yes':
+                    length = int(input('Enter password length \n'))
+                    password = generate_password(length)
+                else:
+                     password = input('Enter password \n')
+
+       
+    
+
 
 
 
