@@ -71,8 +71,16 @@ def generate_password(length):
         password += random.choice(chars)
     return password
 
+def main():
+    
+    '''
+    The main function that runs  before other functions
+    '''
+
 if __name__ == '__main__':
     main()
+
+
 
 
 
