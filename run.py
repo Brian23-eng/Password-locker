@@ -75,7 +75,43 @@ def main():
     
     '''
     The main function that runs  before other functions
+
     '''
+    while True:
+        print("\033c")
+
+        select = input("Welcome to the PasswordLocker. Type in the following: \n \n \"login\" - to log in to you account. \n \"register\" - to create a new Password Locker Account. \n \"exist\" - toe exist the Password Locker App \n \n").lower()
+
+    print("." * 14)
+
+    '''
+    An input method that allows the user to select options when interacting with the app
+
+    '''
+    if select == 'register':
+        print("\033c")
+        f_name = input("Enter your first name \n")
+
+        l_name = input("Enter your last name \n")
+
+        u_name = input("Enter your username \n")
+
+        password = input("Enter a desired strong password \n")
+        register_user(f_name, l_name, u_name, password)
+        print('\n')
+        
+        print("Your Account has been created successfully!! \n")
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     main()
