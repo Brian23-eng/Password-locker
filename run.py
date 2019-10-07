@@ -4,6 +4,7 @@ import unittest
 from user import User
 from credentials import Credential
 import random
+import string
 
 def register_user(f_name, l_name, u_name, password):
     """
@@ -54,15 +55,13 @@ def display_credentials():
     return Credential.cred_list
 
 
-def generate_password(length):
-    """
-        Method that generates passwords.
-    """
-    chars = 'abcdefghijklmnopqrstuvwxyz1234567890'
-    password = ''
-    for chars in range(length):
-        password += random.choice(chars)
-    return password
+def generate_password(username):
+    '''
+    Method that generates random password
+    '''
+    return Credential.generate_password(username)
+
+    
 
 def delete_credentials(cred):
     '''
@@ -112,9 +111,12 @@ def main():
                     choice = input(
                         'Would you like to autogenerate your password?(yes/no) \n').lower()
                     if choice == 'yes':
-                        length = int(input('Enter password length \n'))
-                        password = generate_password(length)
-                    else:
+                        print("\n")
+                        print("your random password is {password} ")
+                        password = Credential.generate_password(u_name)
+                        
+                        
+                    elif choice == "no":
                         password = input('Enter password \n')
 
                     create_credentials(account_name, u_name, password)
