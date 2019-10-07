@@ -151,9 +151,11 @@ def main():
                             '''
                             choice = input("Would you like to delete the credentials?(yes/no)\n")
                             if choice == "Yes":
-                                Credential.cred_list.remove(Credential(account.account_name, account.username, account.password))
+                                delete_credentials(Credential(account.account_name, account.username, account.password))
                                 print("Successfully deleted credentials")
-
+                                print("\n")
+                                anykey = input('Kindly press any key to continue...')
+                                
                     else:
                         print('\n')
                         print("You do not have any saved details yet")
