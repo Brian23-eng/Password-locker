@@ -63,6 +63,16 @@ def generate_password(length):
     for chars in range(length):
         password += random.choice(chars)
     return password
+
+def delete_credentials(cred):
+    '''
+    Method that deletes credentials
+
+    '''
+    return  Credential.cred_list.remove()
+
+
+
 def main():
     """
     The main function that runs before the other functions
@@ -78,12 +88,13 @@ def main():
             f_name = input("Enter your first name \n")
             l_name = input("Enter your last name \n")
             u_name = input("Enter your username \n")
-            password = input("Enter a desired strong password \n")
+            password = input("Enter new password password \n")
             register_user(f_name, l_name, u_name, password)
             print('\n')
             print("Your Account has been created successfully!! \n")
             anykey = input('Kindly press any key to continue...')
             continue
+
         elif selection == 'login':
             print("\033c")
             logged_in = login_user()
@@ -107,6 +118,7 @@ def main():
                         password = input('Enter password \n')
 
                     create_credentials(account_name, u_name, password)
+
                 elif selected_word == 'save':
                     print("\033c")
                     account_name = input('Enter your account name \n')
@@ -114,11 +126,13 @@ def main():
                     password = input('Enter your password \n')
 
                     create_credentials(account_name, u_name, password)
-                    print("Bingo!!Successfully added!! \n")
+                    print("Successfully added!! \n")
                     anykey = input('Kindly press any key to continue...')
+
                 elif selected_word == 'display':
                     print("\033c")
                     logged_in = login_user()
+
                     if logged_in and Credential.cred_list:
                         print("\033c")
                         print("Here is a list of all your accounts details")
@@ -130,6 +144,16 @@ def main():
                             print(f"Login: {account.username}")
                             print(f"Password: {account.password}")
                             print('\n')
+
+                            '''
+                            Choice to delete credentials.
+
+                            '''
+                            choice = input("Would you like to delete the credentials?(yes/no)\n")
+                            if choice == "Yes":
+                                Credential.cred_list.remove(Credential(account.account_name, account.username, account.password))
+                                print("Successfully deleted credentials")
+
                     else:
                         print('\n')
                         print("You do not have any saved details yet")
@@ -137,11 +161,17 @@ def main():
 
                     print('\n \n')
                     anykey = input('Kindly press any key to continue...')
+
+                # elif selected_word == 'delete':
+                #     print("\033c")
+                #     Credential.cred_list.remove(account_name, u_name, password)
+
                 elif selected_word == 'quit':
                     print('See you again!')
                     break
                 else:
                     print("Invalid Input")
+
         else:
             print("Thank you for using Password Locker . See you again!!.")
             break
